@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo {
+            color: red;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>아래에 내용이 추가됩니다.</p>
+    </div>
+    <hr>
+    <button onclick="createImg()" id="img">이미지 생성</button>
+
+    <script>
+
+        const container = document.querySelectorAll(".container")[0];  // 클래스 선택자는 여러개일 수도 있기 때문에 All 하여 인덱스 넘버 추가
+        console.log(container.innerText);
+
+        const h1 = document.createElement('h1'); //<h1></h1> 생성된거랑 똑같음.
+        h1.textContent = '엘리먼트 동적 생성';  // = <h1>엘리먼트 동적 생성</h1> 
+
+        h1.setAttribute('class', 'demo'); //속성 부여
+        h1.style.backgroundColor = 'black'; //스타일 속성 부여
+
+        container.appendChild(h1); // 자식 생성 
+
+        //이미지 생성
+        function createImg() {
+
+            // const createImg = document.querySelector("#img");
+            const img = document.createElement('img');
+           
+            img.setAttribute("src", "img/강아지.jpg")
+
+            container.appendChild(img);
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* #header{
+        text-align: center;
+        font-weight: bold;
+        font-size: 45px;
+        margin-top: 30px;
+        padding-bottom: 30px;
+        border-bottom: 2px solid black;
+    } */
+    body{
+        text-align: center;
+    }
+    /* #foodImg{
+        margin-top: 50px;
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+    } */
+
+    /* #result{
+        font-weight: bold;
+        color: red;
+        font-size: 20px;
+    } */
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="header">점심메뉴 추천</div>
+    
+    <img src="img/초기이미지.png" alt="음식결과" id="foodImg" ><br>
+    <p id="result"> ! 첫 결과로 무조건 먹기 !</p>
+    <button onclick="lunch()">점심메뉴 추천!</button>
+
+    <script>
+        const result = document.getElementById('result');
+        const foodImg = document.getElementById('foodImg');
+
+        //스타일
+        document.getElementById("header").style.textAlign = "center";
+        document.getElementById("header").style.fontWeight = "bold";
+        document.getElementById("header").style.fontSize = '45px';
+        document.getElementById("header").style.marginTop = "30px";
+        document.getElementById("header").style.paddingBottom = "30px";
+        document.getElementById("header").style.borderBottom = "2px solid black";
+
+        document.getElementById("foodImg").style.marginTop = "50px";
+        document.getElementById("foodImg").style.width = "300px";
+        document.getElementById("foodImg").style.height = "300px";
+        document.getElementById("foodImg").style.border = "3px solid black";
+        
+        result.style.color = "red";
+        result.style.fontSize = "20px";
+        result.style.fontWeight = "bold";
+           
+        function lunch() {
+            let lunch = ['국밥', '밀면', '김치찌개',
+                         '부대찌개', '분식', '라멘',
+                         '한솥', '칼국수', '햄버거',
+                         '돈까스', '중국집', '제육'];
+
+            const rd1to12 = Math.floor(Math.random() * lunch.length);
+
+            result.innerText = ' 추천 메뉴:  '+lunch[rd1to12];
+            foodImg.src = "img/"+rd1to12+".jpg";
+        }
+    </script>
+</body>
+
+</html>

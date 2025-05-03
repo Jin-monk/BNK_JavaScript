@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        #btn {
+            margin-top: 20px;
+            height: 70px;
+            width: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>회원가입</h1>
+    <hr>
+    <form name="frm">
+        <ul>
+            <li>
+                ID:<input type="text" name="id" id="id" onchange="checkId()" style="margin: 0 20px 0 65px;">
+                <input type="button" value="중복확인">
+            </li>
+            <p id="checkResult"></p>
+            <li>PW:<input type="password" name="pw" id="pw" style="margin-left: 58px"><br></li>
+            <li>PW CHECK: <input type="password" name="pwCheck" id="pwCheck"></li>
+            <p id="checkPwResult"></p>
+            <li>NAME: <input type="text" name="name" id="name" style="margin-left: 36px"> </li>
+
+            <input type="button" value="가입" onclick="checkPw()" id="btn">
+        </ul>
+    </form>
+    <script>
+        //예시 아이디
+        const idArr = ['aaa', 'beobjin'];
+        const form = document.forms['frm'];
+        //아이디 체크
+        function checkId() {
+            const inputId = form.id.value.trim();
+            const checkResult = document.getElementById("checkResult");
+            //아이디 공란 체크
+            if (inputId === '') {
+                alert("ID를 입력하세요");
+                form.id.focus();
+                return;
+            }
+            //중복 체크
+            if (idArr.includes(inputId)) {
+
+                console.log("실행여부2");
+
+                checkResult.innerText = "이미 사용 중인 ID입니다.";
+                checkResult.style.color = "red";
+                form.id.focus();
+                return;
+            }
+            else {
+                checkResult.innerText = "사용 가능한 ID입니다.";
+                checkResult.style.color = "green";
+                idArr.push(inputId);
+
+            }
+            console.log(idArr);
+        }
+
+        //비밀번호 체크
+        function checkPw() {
+            const inputPw = form.pw.value.trim();
+            const inputPwCheck = form.pwCheck.value.trim();
+            //비밀번호 공란 체크
+            if (inputPw === '') {
+                alert("PW를 입력하세요");
+                form.pw.focus();
+                return;
+
+            }
+            if (inputPwCheck === '') {
+                alert("PW CHECK를 입력하세요");
+                form.pwCheck.focus();
+                return;
+
+            }
+
+            //PW 일치 확인 
+            if (inputPw === inputPwCheck) {
+                document.getElementById("checkPwResult").innerText = "PW가 일치합니다.";
+                checkPwResult.style.color = "green";
+            } else {
+                document.getElementById("checkPwResult").innerText = "PW가 일치하지 않습니다.";
+                checkPwResult.style.color = "red";
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

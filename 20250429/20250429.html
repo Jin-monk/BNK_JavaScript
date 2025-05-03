@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+    //템플릿 문자열
+    let a = 5;
+    let b = 10 ; 
+    console.log("a + b = "+ (a+b));
+    console.log(`a + b = ${a + b}`); //백틱 - 문자열 한번에 사용가능
+    
+    //랜덤 수 
+    const rdNum = Math.random();
+    console.log(rdNum);
+
+    //1 ~ 10사이의 랜덤 수 
+    const rdNum1to10 = Math.floor(Math.random()*10)+1;
+    console.log(rdNum1to10);
+    console.log(`-------------`);
+
+    //반복문
+    for(let i = 0 ; i < 10 ; i ++){
+        console.log(i)
+    }
+
+    console.log(`-------------`);
+    let cnt = 0 ; 
+    while(cnt<5){
+        console.log(cnt++);
+        if(cnt==3) break;
+    }
+    console.log(`-------------`);
+
+    //정수와 문자열을 비교했는데 비교가 된다 
+    console.log(100 == 100); //true
+    console.log(100 == '100'); //true
+    console.log(100 === '100'); //false // '===' 등호가 3개면 좌변과 우변의 값이 똑같고 타입도 똑같아야함 ! 
+    console.log(`-------------`);
+
+    // 객체 생성 방법  
+    const user = {no : 1, name : 'James'};
+    console.log(user);
+    console.log(user.no);
+    console.log(user['no']);
+    console.log(user['name']);
+    console.log(`-------------`);
+
+    //배열
+    let fruit = ['apple','banana','cherry'] ;
+    
+    console.log(fruit);
+    console.log(fruit[0]);
+    console.log(fruit.length);
+
+    fruit.push('peach'); //배열 값 추가 (맨 끝)
+    console.log(fruit);
+    
+    fruit.unshift('melon'); //배열 값 추가 ( 앞 )
+    console.log(fruit);
+    
+    fruit.pop(); //배열 값 제거 (맨 끝)
+    console.log(fruit);
+
+    fruit.shift(); //배열 값 제거 ( 앞 )
+    console.log(fruit);
+
+
+
+
+    
+    </script>
+</body>
+</html>

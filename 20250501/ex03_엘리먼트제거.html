@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <hr>
+        <h1>제거할 엘리먼트</h1>
+        <hr>
+    </div>
+
+    <script>
+
+        const container = document.getElementById('container');
+        const h1 = document.querySelector('h1');
+
+        //화살표 함수 
+        setTimeout( () => { //설정 시간뒤에 행동 
+            container.removeChild(h1);  //사라짐 
+
+        },2000);
+
+    </script>
+</body>
+</html>

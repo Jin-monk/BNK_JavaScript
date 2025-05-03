@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>영문 -> 아스키코드 변환</h1>
+    <hr>
+    <input type="text" id="input" placeholder="영어 입력">
+    <button onclick="toAscii()">변환</button>
+    <br>
+    <p id="output">결과</p>
+
+    <script>
+        let input = document.getElementById("input");
+        let output = document.getElementById("output");
+
+
+        function toAscii() {
+
+            const check = input.value;
+
+            const value = check.charCodeAt(0);
+
+            if (check === "") {
+                alert("값을 입력해주세요!");
+                input.focus();
+                return;
+            } else if (65 <= value && value <= 90 || 97 <= value && value <= 122) {
+                if (input.value.charCodeAt(0) === 113) {
+                    output.innerText = "BOOM";
+                    output.style.backgroundColor = "red";
+                } else {
+                    output.innerText = value;
+                }
+
+            }else{
+                output.innerText ="영어를 입력하세요!" ;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

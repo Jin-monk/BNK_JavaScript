@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>event 중지</h1>
+    <hr>
+    
+    <form name="frm" id="frm">
+        ID: <input type="text" name="txt1" ><br> 
+        PW: <input type="text" name="txt2">
+        <!-- <input type="submit" value="전송"> -->
+        <input type="button" value="전송" onclick="f1()">
+    </form>
+    <hr>
+
+    <form name="frm2" id="frm2" onsubmit="return validateForm()">
+        ID: <input type="text" name="txt1" ><br> 
+        PW: <input type="text" name="txt2">
+        <input type="button" value="전송" >
+    </form>
+    <hr>
+
+    change event : <input type="text" id="tet3" onchange="f2()">
+
+
+
+
+    <script>
+        function f2(){
+            console.log('change 이벤트 발생..')
+
+
+
+        }
+
+
+        function validateForm(){
+            const form = document.forms['frm2'];
+            if(form.txt1.value.trim() === ''){
+                alert("txt1 값을 입력하세요.")
+                form.txt1.focus();
+                return false; 
+            }
+            return true;
+        }
+
+        function f1(){
+            const form = document.forms['frm'];
+            if (form.txt1.value.trim() === ''){
+                alert('txt1 값을 입력하세요.');
+                form.txt1.focus();
+                return;
+            }
+
+            form.submit();
+        }
+
+        document.getElementById('frm').addEventListener('submit',f); //submit이 오면 f함수 실행
+       
+        function f(event){
+            event.preventDefault(); // 브라우저가 기본적으로 하려는 행동을 막는 함수 
+
+            const form = event.target;
+            const txt1 = form.txt1.value.trim();
+            const txt2 = form.txt2.value.trim();
+
+            if(txt1 === ''){
+                alert('txt1 값을 입력하세요');
+                form.txt1.focus();
+                return;
+
+            }
+            else if(txt2 === ''){
+                alert('txt2 값을 입력하세요');
+                form.txt2.focus();
+                return;
+
+            }
+            form.submit(); //submit 수행
+        }
+
+
+
+
+    </script>
+</body>
+</html>

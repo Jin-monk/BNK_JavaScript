@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>영어 -> 아스키 변환 버튼</h1>
+    <hr>
+    <br>
+    <button onclick="toAscii()" id="click" value="a">a</button>
+    <button onclick="toAscii()" id="click" value="b">b</button>
+    <button onclick="toAscii()" id="click">c</button>
+    <button onclick="toAscii()" id="click">d</button>
+    <button onclick="toAscii()" id="click">e</button>
+    <button onclick="toAscii()" id="click">f</button>
+    <button onclick="toAscii()" id="click">g</button>
+    <button onclick="toAscii()" id="click">h</button>
+    
+    
+    <script>
+        const click = document.getElementById("click")
+        const clickVal = click.value;
+        function toAscii(){
+
+            console.log(click);
+            console.log(clickVal);
+        }
+    </script>
+
+</body>
+</html>

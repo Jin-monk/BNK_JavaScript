@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>로그인 유효성검사</h1>
+    <hr>
+
+    <form name="frm">
+        ID: <input type="text" name="txt1" onblur="f()"> <br> <!--onfocus="f()" /  onblur="f()"-->
+        PW: <input type="text" name="txt2">
+        <input type="button" name="btn" onclick="f2()">
+    </form>
+
+    <script>
+        function f() {
+            if (frm.txt1.value == '') {
+                alert('ID를 입력하세요');
+                setTimeout (function(){
+                    frm.txt1.focus();
+
+                }, 0);
+            }
+        }
+    </script>
+</body>
+
+</html>

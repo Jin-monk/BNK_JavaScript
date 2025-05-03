@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 110px 110px 110px;
+            grid-template-rows: 110px 110px 110px;
+        }
+        .button {
+           
+            border: 1px black solid;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: gray;
+            font-size: 2rem;
+            margin-bottom: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    //이벤트 버블링 
+    <div class="container" onclick="f(event)">
+        <div id="item1" class="button">1</div>
+        <div id="item2" class="button">2</div>
+        <div id="item3" class="button">3</div>
+        <div id="item4" class="button">4</div>
+        <div id="item5" class="button">5</div>
+        <div id="item6" class="button">6</div>
+        <div id="item7" class="button">7</div>
+        <div id="item8" class="button">8</div>
+        <div id="item9" class="button">9</div>
+        <div id="item*" class="button">*</div>
+        <div id="item0" class="button">0</div>
+        <div id="item#" class="button">#</div>
+    </div>
+    <script>
+        function f(event) {
+            console.log(event.target.id);
+
+        }
+    </script>
+</body>
+
+</html>

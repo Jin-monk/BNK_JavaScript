@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>문장 생성기</h1>
+    <hr>
+    <button onclick="create()" id="button1">생성!</button> 
+    <p id="result">결과보기</p>
+    
+    <script>
+        document.getElementById("button1").style.color = 'red';
+        const result = document.getElementById("result")
+        function create() {
+            //주어
+            let subject = ['나는', '너는', '그는', '그녀는', '우리는', '그들은', '학생은', '짱구는'];
+            //목적어
+            let object = ['좋아한다', '읽는다', '산다', '본다', '먹는다', '한다', '마신다', '쓴다', '공부한다'];
+            //동사
+            let verb = ['커피를', '책을', '사과를', '영화를', '피자를', '축구를', '물을', '편지를', '수학을'];
+
+            const rdSubject = Math.floor(Math.random() * subject.length);
+            const rdObject = Math.floor(Math.random() * object.length);
+            const rdVerb = Math.floor(Math.random() * verb.length);
+
+            console.log(subject[rdSubject]);
+            console.log(object[rdObject]);
+            console.log(verb[rdVerb]);
+            result.innerText = subject[rdSubject]+'  '+verb[rdVerb]+'  '+object[rdObject];
+
+        }
+    </script>
+</body>
+
+</html>

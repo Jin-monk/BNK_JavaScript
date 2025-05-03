@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #item{
+            border: 1px black solid;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: palevioletred;
+            font-size: 2rem;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Event 객체 </h1>
+    <hr>
+    <div id="item" onclick="f(event)">1</div>
+
+    <script>
+        //매개변수에 event를 넣으면 객체를 쓰겠다 선언.
+        function f(event){
+            
+            console.log(event.target.tagName); 
+            console.log(event.target.innerText); 
+            console.log(event.target.id); 
+            console.log(event.target); //이벤트 발생하는 요소를 알려줌.
+
+            const targetTagName = event.target.tagName;
+            if(targetTagName == 'DIV'){ //대소문자 구문함.
+                console.log('div 태그입니다.')
+            } else{
+                console.log('div 태그 아님.')
+            }
+
+        }
+    </script>
+
+</body>
+</html>

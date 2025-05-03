@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "hello, world";
+        str.includes = "world";
+        console.log(str.includes(" "));
+
+        str = "abcdef";
+        console.log(str.slice(2,5)); //index 2 ~ index 4까지. 앞은 포함, 뒤는 포함하지않음.
+        console.log(str); //원본 유지
+
+        str = "JavaScript";
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase());
+
+        str = "I like apple";
+        console.log(str.replace("apple","banana"));
+
+        str = "red,green,blue";
+        let colors = str.split(",");
+        console.log(colors[0]);
+
+        str = "      Hello       ";
+        console.log(str.trim());
+
+        let numStr = "5";
+        console.log(numStr.padStart(3,"0"));
+        console.log(numStr.padEnd(3,"*"));
+
+        str ="ABC";
+        console.log(str.charAt(0));
+        console.log(str.charCodeAt(0)); //아스키코드 변경 
+
+    </script>
+</body>
+</html>

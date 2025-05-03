@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>테이블 데이터 추가</h1>
+    <hr>
+    <button onclick="f0()">데이터 추가</button>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+
+        </tbody>
+
+    </table>
+
+    <hr>
+    <button onclick="f1()">객체 추가</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PW</th>
+                <th>NAME</th>
+            </tr>
+        </thead>
+        <tbody class="tbody2">
+
+        </tbody>
+
+    </table>
+
+
+    <script>
+
+        const user1 = { id: 'id1', pw: 'pw1', name: '길동' };
+        const user2 = { id: 'id2', pw: 'pw2', name: '철수' };
+        const user3 = { id: 'id3', pw: 'pw3', name: '짱구' };
+
+        const userArr = [user1, user2, user3];
+
+        function f1() {
+            const tbody = document.querySelector(".tbody2");
+
+            for (let i = 0; i < userArr.length; i++) {
+                const tr = document.createElement("tr"); //tr 생성
+                const user = userArr[i];
+
+                const tdId = document.createElement("td"); //td 생성
+                tdId.textContent = user.id;
+                tr.appendChild(tdId);
+
+                const tdPw = document.createElement("td"); //td 생성
+                tdPw.textContent = user.pw;
+                tr.appendChild(tdPw);
+
+                const tdName = document.createElement("td"); //td 생성
+                tdName.textContent = user.name;
+                tr.appendChild(tdName);
+
+                tbody.appendChild(tr);
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // --------------------------------------------
+        function f0() {
+            
+            let num = [1, 2, 3];
+            let name = ['James', 'Ann', 'Benjamin'];
+
+            const tbody = document.querySelector(".tbody");
+
+            for (let i = 0; i < num.length; i++) {
+                // <tr> 생성
+                const tr = document.createElement("tr");
+
+                // <td> 생성 후 데이터 삽입
+                const tdNum = document.createElement("td");
+                tdNum.textContent = num[i];
+                tr.appendChild(tdNum);
+
+                const tdName = document.createElement("td");
+                tdName.textContent = name[i];
+                tr.appendChild(tdName);
+
+                // tbody에 tr 추가
+                tbody.appendChild(tr);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
