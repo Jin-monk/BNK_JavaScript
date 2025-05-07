@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" onclick="loadDoc2()">Change Content</button>
+    <div id="demo3"></div>
+    
+    <script>
+         function loadDoc2() {
+    	  const xhttp = new XMLHttpRequest();
+    	  xhttp.onload = function() {
+    		  let obj = JSON.parse(this.responseText);
+    	    document.getElementById("demo3").innerHTML = this.responseText;
+    	    console.log(obj.name);
+    	    
+    	    }
+    	  xhttp.open("GET", "https://jsonplaceholder.typicode.com/users/1", true);
+    	  xhttp.send();
+    	}
+    </script>
+</body>
+</html>
