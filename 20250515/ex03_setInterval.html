@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🕐10초 맞추기 게임 </h1>
+    <hr>
+    <p id="time" class="btn">--</p>
+    <p id="result" class="btn"></p>
+
+    <button onclick="start()">start!</button>
+    <button onclick="stop()">stop!</button>
+    <script>
+        const time = document.getElementById("time")
+        const result = document.getElementById("result")
+        let cnt = 0;
+        let intervalId;
+        function start() {
+            intervalId = setInterval(() => {
+                cnt++;
+                time.innerText = cnt;
+                console.log(cnt);
+                
+                
+                if(cnt === 3 || cnt ===4 || cnt ===5 || cnt ===6 || cnt ===7 || 
+                    cnt ===8 || cnt ===9 || cnt ===10 || cnt ===11|| cnt ===12){
+
+                    time.innerText = '';
+                }
+                if (cnt === 13) {
+                    clearInterval(intervalId);
+                    result.innerText = "시간초과";
+                }
+            }, 1000);
+        }
+
+
+        function stop() {
+            clearInterval(intervalId);
+            result.innerText ="최종시간:  " +cnt+"초" ;
+            console.log("최종시간:" + cnt);
+            console.log('stop');
+        }
+    </script>
+</body>
+
+</html>
