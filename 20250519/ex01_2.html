@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myBtn">btn1 </button>
+    <button id="myBtn2">btn2 </button>
+
+    <script>
+        // let globalVar = '전역변수';
+
+        // function outerFunction(){
+        //     let outerVar = '외부 함수 지역 변수';
+
+        //     return function innerFunction (){
+        //         console.log(globalVar);
+        //         console.log(outerVar);
+        //     };
+
+        //     //innerFunction();
+        // }
+        // const myInnerFunc = outerFunction();
+        
+        // myInnerFunc();
+
+        //-------------------------------------------------------
+
+        // 클로저의 핵심은 내부함수가 외부함수의 실행이 끝난 후에도
+        // 외부함수의 변수를 기억하고 접근할 수 있는 점이다.
+
+        // 클로저의 사용 예1 : 카운터
+        /*function createCounter(){
+            let count = 0;
+            return function (){
+                count++;
+                return count;
+            }
+
+        }
+
+        const counter1 = createCounter();
+        console.log(counter1());
+        console.log(counter1());
+        console.log(counter1());
+
+        const counter2 = createCounter();
+        console.log(counter2());
+        console.log(counter2());
+        console.log(counter2());*/
+
+        //-------------------------------------------------------
+
+        /*
+        // 클로저의 사용 예2 : 카운터
+        function createCounter(){
+            let count = 0;
+            return {
+                increment: function(){
+                    count ++ ;
+                    return count;
+                },
+                decrement: function(){
+                    count --;
+                    return count;
+                }
+            }
+        }
+
+        const counter1 = createCounter();
+        console.log(counter1.increment()); // 1
+        console.log(counter1.increment()); // 2
+        console.log(counter1.decrement()); // 1
+        
+        const counter2 = createCounter();  
+        console.log(counter2.decrement()); // -1
+        console.log(counter2.decrement()); // -2
+        */
+
+        //-------------------------------------------------------
+        /*
+        // 클로저의 사용 예3: 정보은닉/캡슐화
+
+        function createSecret(secret){
+            return{
+                getSecret: function(key){
+                    if(key === 'green1234'){
+                        return secret;
+                    }else{
+                        return '비밀 접근 실패!';
+                    }
+                }
+            };
+        }
+        const mySecret = createSecret('JS Good..!');
+        console.log(mySecret.getSecret('wrongpw'));
+        console.log(mySecret.getSecret('green1234'));
+        */
+
+        //-------------------------------------------------------
+        /*
+        // 클로저의 사용 예4: private 변수 구현
+        function createBankAccount(initialBalance){
+            let balance = initialBalance;
+            
+            return{
+                deposit: function(amount){
+                    balance += amount;
+                    return `입금완료: 현재 잔액 ${balance}원`;
+                },
+                widthdraw: function(amount){
+                    if(amount > balance){
+                        return '잔액부족';
+                    }
+                    balance -= amount ; 
+                    return `출금완료: 현재 잔액 ${balance}원`;
+                },
+                getBalance:  function(){
+                    return `현재 잔액: ${balance}원` ;
+                }
+
+            } ;
+
+        }
+        const myAccount = createBankAccount(10000);
+        console.log(myAccount.getBalance());  // 현재 잔액 10000원
+        console.log(myAccount.deposit(2000)); // 입금완료: 잔액 12000원
+        console.log(myAccount.widthdraw(5000)); // 출금완료: 잔액 7000원
+        console.log(myAccount.widthdraw(8000)); // 잔액 부족 
+        console.log(myAccount.balance); // 직접 접근불가 
+        */
+
+        //-------------------------------------------------------
+        /*
+
+        // 클로저의 사용 예5: 함수 팩토리
+        function multiplyBy(factor){
+            return function(number){
+                return number * factor;
+            };
+        }
+        
+        const double = multiplyBy(2);
+        const triple = multiplyBy(3);
+        const quadruple = multiplyBy(4);
+
+        console.log(double(5));
+        console.log(triple(5));
+        console.log(quadruple(5));
+        const numbers = [1,2,3,4,5];
+        console.log(numbers.map(double));
+        */
+        //-------------------------------------------------------
+        
+
+        // 클로저의 사용 예6: 이벤트 핸들러
+        function setupButton(buttonElement,message){
+            buttonElement.addEventListener('click',function(){
+                alert(message);
+            });
+
+        }
+        const myBtn = document.getElementById('myBtn');
+        setupButton(myBtn,'버튼이 클릭되었습니다.');
+        const myBtn2 = document.getElementById('myBtn2');
+        setupButton(myBtn2,'Button2 Cliceked');
+        
+    </script>
+</html>

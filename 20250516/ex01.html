@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        function makeFriedEgg(){
+            return new Promise(resolve =>{
+                setTimeout (()=> {
+                    resolve("짜잔!");
+                },1000);
+            });
+        }
+
+        async function cookBreakfast(){
+            console.log("계란후라이를 만들기 시작합니다.");
+
+            const firedEggResult = await makeFriedEgg();
+            console.log(firedEggResult);
+           
+            
+            //메인 요리를 요청해서 받는 코드 추가하기 (fetch)
+            
+            const response = await fetch('http://localhost:8092/cook/maindish');
+            const maindish = await response.text();
+            console.log(maindish);
+            console.log("토스트도 준비 완료");
+        }
+
+        cookBreakfast();
+        console.log("커피를 내리는 중 .. ") 
+
+    </script>
+</body>
+</html>
